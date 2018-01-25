@@ -1,20 +1,23 @@
-cmake_minimum_required(VERSION 2.8.3)
-project(ros_environment)
-find_package(catkin REQUIRED)
+cmake_minimum_required(VERSION 3.5)
+project(ros_environment NONE)
+find_package(ament_cmake_core REQUIRED)
 
-catkin_package()
-
-if(CMAKE_HOST_UNIX)
-  set(shells "sh")
-else()
-  set(shells "bat")
-endif()
+set(ROS_VERSION "2")
+set(ROS_DISTRO "ardent")
 
 set(
   hooks
   "1.ros_distro"
   "1.ros_version"
 )
+if(CMAKE_HOST_UNIX)
+  set(shell "sh")
+else()
+  set(shell "bat")
+endif()
 foreach(hook ${hooks})
-  catkin_add_env_hooks("${hook}" SHELLS ${shells} DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+  ament_environment_hooks(
+    "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.${shell}.in")
 endforeach()
+
+ament_package()

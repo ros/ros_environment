@@ -13,6 +13,8 @@ endif()
 set(
   hooks
   "1.ros_distro"
+  "1.ros_etc_dir"
+  "1.ros_package_path"
   "1.ros_version"
 )
 foreach(hook ${hooks})

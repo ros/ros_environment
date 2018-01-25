@@ -7,6 +7,11 @@ catkin_package()
 set(ROS_VERSION "1")
 set(ROS_DISTRO "TODO")
 
+# allow overriding the distro name
+if(NOT $ENV{ROS_DISTRO_OVERRIDE} STREQUAL "")
+  set(ROS_DISTRO "$ENV{ROS_DISTRO_OVERRIDE}")
+endif()
+
 set(
   hooks
   "1.ros_distro"

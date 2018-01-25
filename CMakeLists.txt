@@ -4,11 +4,8 @@ find_package(catkin REQUIRED)
 
 catkin_package()
 
-if(CMAKE_HOST_UNIX)
-  set(shells "sh")
-else()
-  set(shells "bat")
-endif()
+set(ROS_VERSION "1")
+set(ROS_DISTRO "TODO")
 
 set(
   hooks
@@ -17,6 +14,11 @@ set(
   "1.ros_package_path"
   "1.ros_version"
 )
+if(CMAKE_HOST_UNIX)
+  set(shell "sh")
+else()
+  set(shell "bat")
+endif()
 foreach(hook ${hooks})
-  catkin_add_env_hooks("${hook}" SHELLS ${shells} DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
+  catkin_add_env_hooks("${hook}" SHELLS ${shell} DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/env-hooks)
 endforeach()

@@ -5,7 +5,7 @@ find_package(catkin REQUIRED)
 catkin_package()
 
 set(ROS_VERSION "1")
-set(ROS_DISTRO "TODO")
+set(ROS_DISTRO "melodic")
 
 # allow overriding the distro name
 if(NOT $ENV{ROS_DISTRO_OVERRIDE} STREQUAL "")

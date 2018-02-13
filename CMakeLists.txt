@@ -3,7 +3,7 @@ project(ros_environment NONE)
 find_package(ament_cmake_core REQUIRED)
 
 set(ROS_VERSION "2")
-set(ROS_DISTRO "ardent")
+set(ROS_DISTRO "bouncy")
 
 set(
   hooks

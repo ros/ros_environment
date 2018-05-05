@@ -7,6 +7,13 @@ catkin_package()
 set(ROS_VERSION "1")
 set(ROS_DISTRO "melodic")
 
+set(ROS_PY_VER "$ENV{ROS_PYTHON_VERSION}")
+if(ROS_PY_VER)
+  set(ROS_PYTHON_VERSION "${ROS_PY_VER}")
+else()
+  set(ROS_PYTHON_VERSION "2")
+endif()
+
 # allow overriding the distro name
 if(NOT $ENV{ROS_DISTRO_OVERRIDE} STREQUAL "")
   set(ROS_DISTRO "$ENV{ROS_DISTRO_OVERRIDE}")
@@ -18,6 +25,7 @@ set(
   "1.ros_etc_dir"
   "1.ros_package_path"
   "1.ros_version"
+  "1.ros_python_version"
 )
 if(CMAKE_HOST_UNIX)
   set(shell "sh")

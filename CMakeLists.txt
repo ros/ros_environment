@@ -7,7 +7,7 @@ catkin_package()
 set(ROS_VERSION "1")
 set(ROS_DISTRO "melodic")
 
-# allow overriding the python version
+# allow overriding the Python version
 if(DEFINED ENV{ROS_PYTHON_VERSION})
   set(ROS_PYTHON_VERSION "$ENV{ROS_PYTHON_VERSION}")
 else()

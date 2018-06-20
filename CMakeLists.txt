@@ -4,11 +4,13 @@ find_package(ament_cmake_core REQUIRED)
 
 set(ROS_VERSION "2")
 set(ROS_DISTRO "bouncy")
+set(ROS_PYTHON_VERSION "3")
 
 set(
   hooks
   "1.ros_distro"
   "1.ros_version"
+  "1.ros_python_version"
 )
 if(CMAKE_HOST_UNIX)
   set(shell "sh")

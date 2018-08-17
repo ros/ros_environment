@@ -3,8 +3,14 @@ project(ros_environment NONE)
 find_package(ament_cmake_core REQUIRED)
 
 set(ROS_VERSION "2")
-set(ROS_DISTRO "bouncy")
 set(ROS_PYTHON_VERSION "3")
+
+# allow overriding the distro name
+if(DEFINED ENV{ROS_DISTRO_OVERRIDE})
+  set(ROS_DISTRO $ENV{ROS_DISTRO_OVERRIDE})
+else()
+  set(ROS_DISTRO "bouncy")
+endif()
 
 set(
   hooks

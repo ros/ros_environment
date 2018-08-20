@@ -5,7 +5,6 @@ find_package(catkin REQUIRED)
 catkin_package()
 
 set(ROS_VERSION "1")
-set(ROS_DISTRO "melodic")
 
 # allow overriding the Python version
 if(DEFINED ENV{ROS_PYTHON_VERSION})
@@ -15,8 +14,10 @@ else()
 endif()
 
 # allow overriding the distro name
-if(NOT $ENV{ROS_DISTRO_OVERRIDE} STREQUAL "")
-  set(ROS_DISTRO "$ENV{ROS_DISTRO_OVERRIDE}")
+if(DEFINED ENV{ROS_DISTRO_OVERRIDE})
+  set(ROS_DISTRO $ENV{ROS_DISTRO_OVERRIDE})
+else()
+  set(ROS_DISTRO "melodic")
 endif()
 
 set(

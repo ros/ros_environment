@@ -7,7 +7,8 @@ echo from __future__ import print_function > _parent_package_path.py
 echo import os >> _parent_package_path.py
 echo env_name = 'CMAKE_PREFIX_PATH' >> _parent_package_path.py
 echo paths = [path for path in os.environ[env_name].split(os.pathsep)] if env_name in os.environ and os.environ[env_name] != '' else [] >> _parent_package_path.py
-echo workspaces = [path for path in paths if os.path.exists(os.path.join(path, '.catkin'))] >> _parent_package_path.py
+echo workspaces = [os.path.normcase(path) for path in paths if os.path.exists(os.path.join(path, '.catkin'))] >> _parent_package_path.py
+echo workspaces = [w for i,w in enumerate(workspaces) if w not in workspaces[:i]] # remove duplicate entries >> _parent_package_path.py
 echo paths = [] >> _parent_package_path.py
 echo for workspace in workspaces: >> _parent_package_path.py
 echo     filename = os.path.join(workspace, '.catkin') >> _parent_package_path.py
@@ -29,13 +30,7 @@ setlocal EnableDelayedExpansion
 set ROS_PACKAGE_PATH_PARENTS=
 for /f %%a in ('@(PYTHON_EXECUTABLE) _parent_package_path.py') do set ROS_PACKAGE_PATH_PARENTS=!ROS_PACKAGE_PATH_PARENTS!%%a
 
-@[if DEVELSPACE]@
-REM env variable in develspace
-set ROS_PACKAGE_PATH=@(CMAKE_SOURCE_DIR)!ROS_PACKAGE_PATH_PARENTS!
-@[else]@
-REM env variable in installspace
-set ROS_PACKAGE_PATH=@(CMAKE_INSTALL_PREFIX)/share;@(CMAKE_INSTALL_PREFIX)/stacks;%ROS_PACKAGE_PATH_PARENTS%
-@[end if]@
+set ROS_PACKAGE_PATH=%ROS_PACKAGE_PATH_PARENTS%
 
 del _parent_package_path.py
 

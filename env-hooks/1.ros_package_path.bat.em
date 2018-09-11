@@ -7,8 +7,15 @@ echo from __future__ import print_function > _parent_package_path.py
 echo import os >> _parent_package_path.py
 echo env_name = 'CMAKE_PREFIX_PATH' >> _parent_package_path.py
 echo paths = [path for path in os.environ[env_name].split(os.pathsep)] if env_name in os.environ and os.environ[env_name] != '' else [] >> _parent_package_path.py
-echo workspaces = [os.path.normcase(path) for path in paths if os.path.exists(os.path.join(path, '.catkin'))] >> _parent_package_path.py
-echo workspaces = [w for i,w in enumerate(workspaces) if w not in workspaces[:i]] # remove duplicate entries >> _parent_package_path.py
+echo workspaces = [path for path in paths if os.path.exists(os.path.join(path, '.catkin'))] >> _parent_package_path.py
+echo # remove duplicate entries >> _parent_package_path.py
+echo unique_workspaces = [] >> _parent_package_path.py
+echo found_workspaces = [] >> _parent_package_path.py
+echo for w in workspaces: >> _parent_package_path.py
+echo     if os.path.normpath(os.path.normcase(w)) not in unique_workspaces: >> _parent_package_path.py
+echo         unique_workspaces.append(os.path.normpath(os.path.normcase(w))) >> _parent_package_path.py
+echo         found_workspaces.append(w) >> _parent_package_path.py
+echo workspaces = found_workspaces >> _parent_package_path.py
 echo paths = [] >> _parent_package_path.py
 echo for workspace in workspaces: >> _parent_package_path.py
 echo     filename = os.path.join(workspace, '.catkin') >> _parent_package_path.py

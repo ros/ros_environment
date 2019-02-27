@@ -8,7 +8,7 @@ echo import os >> _parent_package_path.py
 echo env_name = 'CMAKE_PREFIX_PATH' >> _parent_package_path.py
 echo paths = [path for path in os.environ[env_name].split(os.pathsep)] if env_name in os.environ and os.environ[env_name] != '' else [] >> _parent_package_path.py
 echo workspaces = [path for path in paths if os.path.exists(os.path.join(path, '.catkin'))] >> _parent_package_path.py
-echo workspaces = list(set([os.path.normpath(os.path.normcase(ws)) for ws in workspaces])) >> _parent_package_path.py
+echo workspaces = list(set([os.path.normpath(ws) for ws in workspaces])) >> _parent_package_path.py
 echo paths = [] >> _parent_package_path.py
 echo for workspace in workspaces: >> _parent_package_path.py
 echo     filename = os.path.join(workspace, '.catkin') >> _parent_package_path.py

@@ -18,18 +18,23 @@ set(
   "1.ros_version"
   "1.ros_python_version"
 )
+set(shells "dsv")
 if(CMAKE_HOST_UNIX)
-  set(shell "sh")
+  list(APPEND shells "sh")
 else()
-  set(shell "bat")
+  list(APPEND shells "bat")
 endif()
 foreach(hook ${hooks})
-  ament_environment_hooks(
-    "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.${shell}.in")
+  foreach(shell ${shells})
+    ament_environment_hooks(
+      "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.${shell}.in")
+    ament_environment_hooks(
+      "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.dsv.in")
+  endforeach()
 endforeach()
-ament_environment_hooks(
-  "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/1.ros_version.dsv.in")
-ament_environment_hooks(
-  "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/1.ros_python_version.dsv.in")
+if(CMAKE_HOST_UNIX)
+  ament_environment_hooks(
+    "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/0.ros_distro_check.sh.in")
+endif()
 
 ament_package()

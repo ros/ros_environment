@@ -27,5 +27,9 @@ foreach(hook ${hooks})
   ament_environment_hooks(
     "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.${shell}.in")
 endforeach()
+ament_environment_hooks(
+  "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/1.ros_version.dsv.in")
+ament_environment_hooks(
+  "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/1.ros_python_version.dsv.in")
 
 ament_package()

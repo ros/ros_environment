@@ -28,8 +28,6 @@ foreach(hook ${hooks})
   foreach(shell ${shells})
     ament_environment_hooks(
       "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.${shell}.in")
-    ament_environment_hooks(
-      "${CMAKE_CURRENT_SOURCE_DIR}/env-hooks/${hook}.dsv.in")
   endforeach()
 endforeach()
 if(CMAKE_HOST_UNIX)

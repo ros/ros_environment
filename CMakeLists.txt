@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ros_environment NONE)
 find_package(ament_cmake_core REQUIRED)
 
-set(ROS_LOCALHOST_ONLY "1")
+set(ROS_LOCALHOST_ONLY "0")
 set(ROS_VERSION "2")
 set(ROS_PYTHON_VERSION "3")
 

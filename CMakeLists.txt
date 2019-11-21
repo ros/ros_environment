@@ -10,7 +10,7 @@ set(ROS_PYTHON_VERSION "3")
 if(DEFINED ENV{ROS_DISTRO_OVERRIDE})
   set(ROS_DISTRO $ENV{ROS_DISTRO_OVERRIDE})
 else()
-  set(ROS_DISTRO "eloquent")
+  set(ROS_DISTRO "foxy")
 endif()
 
 set(

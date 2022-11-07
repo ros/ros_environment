@@ -1,6 +1,6 @@
 <package format="2">
   <name>ros_environment</name>
-  <version>3.2.1</version>
+  <version>3.2.2</version>
   <description>The package provides the environment variables `ROS_VERSION` and `ROS_DISTRO`.</description>
   <maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
   <license>Apache License 2.0</license>

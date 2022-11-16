@@ -2,7 +2,9 @@
   <name>ros_environment</name>
   <version>4.0.0</version>
   <description>The package provides the environment variables `ROS_VERSION` and `ROS_DISTRO`.</description>
-  <maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
+
+  <maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
+
   <license>Apache License 2.0</license>
 
   <url type="repository">https://github.com/ros/ros_environment</url>

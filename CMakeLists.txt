@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.5)
 project(ros_environment NONE)
 find_package(ament_cmake_core REQUIRED)
 
-set(ROS_LOCALHOST_ONLY "0")
+set(ROS_AUTOMATIC_DISCOVERY_RANGE "SUBNET")
 set(ROS_VERSION "2")
 set(ROS_PYTHON_VERSION "3")
 
@@ -16,7 +16,7 @@ endif()
 set(
   hooks
   "1.ros_distro"
-  "1.ros_localhost_only"
+  "1.ros_discovery"
   "1.ros_python_version"
   "1.ros_version"
 )

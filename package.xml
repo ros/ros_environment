@@ -1,6 +1,6 @@
 <package format="2">
   <name>ros_environment</name>
-  <version>4.1.0</version>
+  <version>4.2.0</version>
   <description>The package provides the environment variables `ROS_VERSION` and `ROS_DISTRO`.</description>
 
   <maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>

@@ -2,5 +2,5 @@
 Changelog for package ros_environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+4.3.0 (2024-04-26)
+------------------

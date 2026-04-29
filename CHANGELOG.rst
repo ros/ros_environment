@@ -2,6 +2,9 @@
 Changelog for package ros_environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.4.1 (2025-07-01)
 ------------------
 * fix cmake deprecation (`#42 <https://github.com/ros/ros_environment/issues/42>`_)

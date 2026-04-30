@@ -2,6 +2,9 @@
 Changelog for package ros_environment
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+
 4.5.0 (2026-04-29)
 ------------------
 * Change default ROS_DISTRO from 'rolling' to 'lyrical'

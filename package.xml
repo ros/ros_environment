@@ -5,7 +5,7 @@
 
   <maintainer email="steven@openrobotics.org">Steven! Ragnarök</maintainer>
 
-  <license>Apache License 2.0</license>
+  <license>Apache-2.0</license>
 
   <url type="repository">https://github.com/ros/ros_environment</url>
   <url type="bugtracker">https://github.com/ros/ros_environment/issues</url>
